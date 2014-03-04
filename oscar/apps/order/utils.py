@@ -54,7 +54,7 @@ class OrderCreator(object):
             generator = OrderNumberGenerator()
             order_number = generator.order_number(basket)
         if not status and hasattr(settings, 'OSCAR_INITIAL_ORDER_STATUS'):
-            status = getattr(settings, 'OSCAR_INITIAL_ORDER_STATUS')
+            status = settings.OSCAR_INITIAL_ORDER_STATUS
         try:
             Order._default_manager.get(number=order_number)
         except Order.DoesNotExist:
